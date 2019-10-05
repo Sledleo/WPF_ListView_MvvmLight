@@ -13,8 +13,9 @@ namespace WPF_ListView_MvvmLight
     public class MainWindowModel 
     {
         public string Title { get { return "ListView - App"; } }
-
+        int iPages = 1;
         public ObservableCollection<Book> Books { get; private set; }
+
 
         public MainWindowModel()
         {
@@ -25,6 +26,7 @@ namespace WPF_ListView_MvvmLight
             };
         }
 
+
         private ICommand changeCommand;
 
         public ICommand ChangeCommand
@@ -33,8 +35,8 @@ namespace WPF_ListView_MvvmLight
             {
                 return changeCommand ?? (changeCommand = new RelayCommand( () =>
                     {
-                        Books.Add(new Book { Title = "Zzz", Pages = 111 });
-                        Books.First().Pages += 1;
+                        Books.Add(new Book { Title = "Zzz", Pages = iPages });   ++iPages;
+                        ++Books.First().Pages;
                     }
                 ));
             }

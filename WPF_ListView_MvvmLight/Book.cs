@@ -14,9 +14,9 @@ namespace WPF_ListView_MvvmLight
         private int pages;
         private string title;
 
-        public string Title { get => title; set { title = value; PCh(); } }
+        public string Title { get => title; set { if (value != title) { title = value; PCh(); } } }
 
-        public int Pages { get => pages; set { pages = value; PCh(); } }
+        public int Pages { get => pages;  set { if (value != pages) { pages = value; PCh(); } } }
 
 
 
