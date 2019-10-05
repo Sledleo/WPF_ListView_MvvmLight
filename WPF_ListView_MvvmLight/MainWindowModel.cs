@@ -35,7 +35,8 @@ namespace WPF_ListView_MvvmLight
             {
                 return changeCommand ?? (changeCommand = new RelayCommand( () =>
                     {
-                        Books.Add(new Book { Title = "Zzz", Pages = iPages });   ++iPages;
+                        Books.Add(new Book { Title = "Zzz", Pages = iPages });
+                        ++iPages;
                         ++Books.First().Pages;
                     }
                 ));
